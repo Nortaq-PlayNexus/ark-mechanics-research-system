@@ -1,0 +1,2 @@
+# ARK Omniscience desktop client
+PySide6>=6.6

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #05070a;
+  --color-panel: #0a0f14;
+  --color-panel-2: #0e161d;
+  --color-edge: #1b2b32;
+  --color-tactical: #35e08a;
+  --color-tactical-dim: #1a7d51;
+  --color-amber: #ffb428;
+  --color-danger: #ff5f56;
+  --color-cool: #4cc3ff;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% -10%, rgba(53, 224, 138, 0.09), transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(255, 180, 40, 0.06), transparent 40%),
+    #05070a;
+  color: #d6e2df;
+}
+
+/* grid overlay used by the command centre */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(53, 224, 138, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53, 224, 138, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(14, 22, 29, 0.92), rgba(8, 12, 16, 0.92));
+  border: 1px solid #1b2b32;
+}
+
+.glow-tactical {
+  box-shadow: 0 0 0 1px rgba(53, 224, 138, 0.25), 0 0 22px -8px rgba(53, 224, 138, 0.5);
+}
+
+.glow-amber {
+  box-shadow: 0 0 0 1px rgba(255, 180, 40, 0.25), 0 0 22px -8px rgba(255, 180, 40, 0.5);
+}
+
+@keyframes scan {
+  0% { opacity: 0.25; transform: translateX(-100%); }
+  50% { opacity: 1; }
+  100% { opacity: 0.25; transform: translateX(100%); }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(53, 224, 138, 0.35), transparent);
+  animation: scan 3.4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.live-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #05070a; }
+::-webkit-scrollbar-thumb { background: #1b2b32; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #274049; }
+
+.data-font { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }

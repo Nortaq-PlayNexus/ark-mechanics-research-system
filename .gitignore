@@ -1,0 +1,28 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+.env*.local
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Local config / secrets
+.env
+.ark_omniscience/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

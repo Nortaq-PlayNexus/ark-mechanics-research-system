@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsx --test tests/ark.test.ts
+      - run: npx tsc --noEmit
+      - run: npx eslint .
+
+  desktop:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install PySide6 pytest
+      - run: python -m pytest desktop/tests/test_core.py -v
+      - name: Build desktop EXE
+        run: |
+          pip install pyinstaller
+          pyinstaller --noconfirm --windowed --name ArkOmniscience --add-data "desktop/ark_omniscience/data;data" --collect-all PySide6 desktop/main.py
+      - name: Verify EXE exists
+        run: |
+          if (-not (Test-Path dist/ArkOmniscience/ArkOmniscience.exe)) { exit 1 }
