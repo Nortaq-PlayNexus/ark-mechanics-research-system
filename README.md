@@ -3,10 +3,32 @@
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
 ![Web](https://img.shields.io/badge/web-Next.js%2016-black)
 ![Desktop](https://img.shields.io/badge/desktop-PySide6%20%2B%20PyInstaller-green)
+![Tests](https://img.shields.io/badge/tests-19%20TS%20%2B%2013%20Py-brightgreen)
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey)
 
 A two-part ARK: Survival Ascended mechanics research platform: a **Next.js web command centre** (12 research agents, synergy/hypothesis/experiment engines, PostgreSQL via Drizzle) and a **standalone Windows desktop application** that runs fully offline from an embedded knowledge base — no database, no server required.
 
-![Desktop application — Creature Encyclopedia](docs/screenshots/02-creature-encyclopedia.png)
+## Application Preview
+
+![Command Centre](docs/screenshots/01-command-centre.png)
+
+| # | Screen | Preview |
+|---|--------|---------|
+| 01 | Command Centre | ![](docs/screenshots/01-command-centre.png) |
+| 02 | Agent Control | ![](docs/screenshots/02-agent-control.png) |
+| 03 | Creature Encyclopedia | ![](docs/screenshots/03-creature-encyclopedia.png) |
+| 04 | Combination Explorer | ![](docs/screenshots/04-combination-explorer.png) |
+| 05 | Buff Lab | ![](docs/screenshots/05-buff-lab.png) |
+| 06 | Raid Intelligence | ![](docs/screenshots/06-raid-intelligence.png) |
+| 07 | PvP Research | ![](docs/screenshots/07-pvp-research.png) |
+| 08 | PvE & Boss | ![](docs/screenshots/08-pve-boss.png) |
+| 09 | Breeding & Mutation | ![](docs/screenshots/09-breeding-mutation.png) |
+| 10 | Undiscovered Mechanics | ![](docs/screenshots/10-undiscovered-mechanics.png) |
+| 11 | Experiment Manager | ![](docs/screenshots/11-experiment-manager.png) |
+| 12 | Discovery Database | ![](docs/screenshots/12-discovery-database.png) |
+| 13 | Evidence & Sources | ![](docs/screenshots/13-evidence-sources.png) |
+| 14 | Research Reports | ![](docs/screenshots/14-research-reports.png) |
+| 15 | Settings | ![](docs/screenshots/15-settings.png) |
 
 ## Quick start
 
@@ -54,19 +76,6 @@ pyinstaller --noconfirm --windowed --name ArkOmniscience --add-data "desktop/ark
 - Designed experiments never contain results; confirmation requires measured replicates + evidence.
 - Classifications run from `UNVERIFIED` → `INDEPENDENTLY-REPLICATED`, and `PATCHED / OBSOLETE` is tracked separately.
 
-## Screenshots
-
-| Screen | Image |
-|---|---|
-| Command Centre | [01](docs/screenshots/01-command-centre.png) |
-| Creature Encyclopedia | [02](docs/screenshots/02-creature-encyclopedia.png) |
-| Buff Lab | [03](docs/screenshots/03-buff-lab.png) |
-| PvE & Boss | [04](docs/screenshots/04-pve-boss.png) |
-| Discovery Database | [05](docs/screenshots/05-discovery-database.png) |
-| Settings | [06](docs/screenshots/06-settings.png) |
-
-Captured from the real application running in offline mode (`python scripts/capture_screenshots.py`).
-
 ## Tests
 
 ```powershell
@@ -85,4 +94,4 @@ npm run build                              # Next.js production build
 ## License
 
 No license file is included yet — all rights reserved by default. See the repository owner for terms.
-On GitHub, the repository owner can add a license under **Settings → General → License**.
+EOF

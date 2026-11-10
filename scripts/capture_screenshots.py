@@ -13,20 +13,35 @@ win.refresh()
 app.processEvents()
 out = "docs/screenshots"
 os.makedirs(out, exist_ok=True)
-import pathlib
-pathlib.Path(out).mkdir(parents=True, exist_ok=True)
+
+names = [
+    "01-command-centre",
+    "02-agent-control",
+    "03-creature-encyclopedia",
+    "04-combination-explorer",
+    "05-buff-lab",
+    "06-raid-intelligence",
+    "07-pvp-research",
+    "08-pve-boss",
+    "09-breeding-mutation",
+    "10-undiscovered-mechanics",
+    "11-experiment-manager",
+    "12-discovery-database",
+    "13-evidence-sources",
+    "14-research-reports",
+    "15-settings",
+]
+
 def shot(tab_idx, name):
     win.tabs.setCurrentIndex(tab_idx)
     app.processEvents()
+    QtWidgets.QApplication.processEvents()
     pix = win.grab()
     ok = pix.save(f"{out}/{name}.png")
-    print(name, ok, pix.size().width(), pix.size().height())
-shot(0, "01-command-centre")
-shot(2, "02-creature-encyclopedia")
-shot(4, "03-buff-lab")
-shot(7, "04-pve-boss")
-shot(12, "05-discovery-database")
-shot(14, "06-settings")
-# verify offline counts
+    print(name, ok, pix.size().width(), "x", pix.size().height())
+
+for i, n in enumerate(names):
+    shot(i, n)
+
 emb = EmbeddedRepository()
-print("creatures", len(emb.creatures()))
+print("creatures", len(emb.creatures()), "buffs", len(emb.buffs()))
